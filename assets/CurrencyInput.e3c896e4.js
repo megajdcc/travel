@@ -1,0 +1,1 @@
+import{u as o}from"./index.2bb95644.js";import{o as r,c as p}from"./index.453ae20a.js";const m={__name:"CurrencyInput",props:{modelValue:Number,options:Object},setup(e){const t=e,{inputRef:n}=o(t.options);return(u,c)=>(r(),p("input",{type:"text",ref_key:"inputRef",ref:n},null,512))}};export{m as _};
