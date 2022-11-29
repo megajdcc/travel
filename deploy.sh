@@ -18,12 +18,12 @@ echo > .nojekyll
 git init
 git checkout -B main
 git add -A
-git commit -m 'deploy'
+git commit -m 'deploy 2'
 
-# si estás desplegando en https://<NOMBRE DE USUARIO>.github.io
-# git push -f git@github.com:<NOMBRE DE USUARIO>/<NOMBRE DE USUARIO>.github.io.git main
+# si estás desplegando en https://<USERNAME>.github.io
+# git push -f git@github.com:<USERNAME>/<NOMBRE DE USUARIO>.github.io.git main
 
-# si estás desplegando en https://<NOMBRE DE USUARIO>.github.io/<REPO>
-# git push -f git@github.com:<NOMBRE DE USUARIO>/<REPO>.git main:gh-pages
+# si estás desplegando en https://<USERNAME>.github.io/<repo>
+git push -f git@github.com:megajdcc/travel.git master:gh-pages
 
 cd -
