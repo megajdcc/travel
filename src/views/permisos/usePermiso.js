@@ -1,0 +1,85 @@
+
+
+import useFilterTable from '@core/utils/useFilterTable'
+
+import { usePermisoStore } from 'stores/permiso'
+
+export default function usePermiso() {
+
+   const permiso = usePermisoStore()
+
+   const tableColumns = [
+      { key: 'id', sortable: true, label: '#' },
+      { key: 'nombre', sortable: true, label: "Rol" },
+      { key: 'actions', sortKey: "id", sortable: true },
+   ];
+
+   const {
+      perPageOptions,
+      currentPage,
+      perPage,
+      searchQuery,
+      sortBy,
+      isSortDirDesc,
+      refTable,
+      total,
+      dataMeta,
+      refetchData,
+   } = useFilterTable();
+
+   const fetchData = (context, next) => {
+
+      permiso.fetchData({
+         perPage: perPage.value,
+         sortBy: sortBy.value,
+         isSortDirDesc: isSortDirDesc.value,
+         q: searchQuery.value,
+         page: currentPage.value
+      }).then((data) => {
+
+         next(data.permisos)
+         total.value = Number(data.total)
+
+      }).catch(e => {
+         toast.error('Error trayendo data ')
+      })
+
+   }
+
+   const eliminarPermiso = (id) => {
+
+      permiso.eliminarPermiso(id).then(({ result }) => {
+
+         if (result) {
+            toast.success('Permiso Eliminado con éxito.')
+            refetchData();
+         } else {
+            toast.error('El Permiso no se pudo eliminar, inténtelo de nuevo mas tarde')
+         }
+
+      }).catch(e => {
+         console.log(e)
+      })
+
+   }
+
+
+
+   return {
+      perPageOptions,
+      currentPage,
+      perPage,
+      searchQuery,
+      sortBy,
+      isSortDirDesc,
+      refTable,
+      total,
+      dataMeta,
+      refetchData,
+      fetchData,
+      tableColumns,
+      eliminarPermiso
+   }
+
+
+}

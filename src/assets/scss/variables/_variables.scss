@@ -1,0 +1,41 @@
+
+$primary:#1e9ad7;
+$success: #61A60E;
+$danger:#FF595A;
+$warning:#F4B223;
+$morado:#A1007D;
+$rosa:#E11383;
+$info:#55aaff;
+
+$grandient-linear: linear-gradient(94deg, rgba(0,0,0,1) 0%, $primary 63%, $primary 100%);
+$secondary:black;
+// $theme-dark-card-bg:#a71d1d;
+$theme-dark-body-bg:#1b191a;
+
+// $theme-dark-table-header-bg:#1b191a;
+$theme-dark-table-bg:#1b191a;
+$theme-dark-table-row-bg:#1b191a;
+$theme-dark-input-bg:#1b191a;
+
+$headings-color:$secondary;
+
+$navbar-height:60px;
+$horizontal-menu-height:50px;
+// $content-padding:1rem !important;
+// $form-label-margin-bottom:0rem;
+// Api Uri
+$uri:'https://api.travelpoints.dev';
+
+
+// Espaciados, margin y padding
+$spacer: 1rem;
+
+$spacers: (
+  0: 0,
+  1: $spacer * .15,
+  2: $spacer * .5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+);
+

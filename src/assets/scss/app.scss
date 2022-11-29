@@ -1,0 +1,56 @@
+@import "@core/scss/core.scss";
+@import "variables/fuentes";
+
+
+h1,h2,h3,h4,h5,h6{
+   font-family: 'Myriad Regular';
+   font-weight: bolder;
+}
+
+body{
+   font-family: 'Myriad Light';
+   font-size: 1.3rem;
+}
+
+strong{
+   font-weight: 'Nexa Bold' !important;
+}
+
+
+
+.table-danger .text-nowrap,
+.table-success .text-nowrap,
+.table-info .text-nowrap,
+.table-warning .text-nowrap,
+.table-primary .text-nowrap
+ {
+    color: black;
+}
+
+
+.b-table-sticky-column{
+    color: black !important;
+}
+
+
+
+.horizontal-menu .header-navbar.navbar-horizontal ul#main-menu-navigation > li.active > a {
+    color: #fff !important;
+}
+
+
+a{
+  text-decoration: none;
+}
+
+// .horizontal-menu .horizontal-menu-wrapper .header-navbar {
+//     min-height: 2.45rem;
+// }
+
+// .main-menu .navbar-header .navbar-brand .brand-logo img {
+//     max-width: 230px !important;
+// }
+
+// .horizontal-menu .header-navbar.navbar-brand-center .navbar-header .navbar-brand .brand-logo img {
+//     max-width: 300px !important;
+// }

@@ -1,0 +1,74 @@
+<template>
+  <!-- Error page-->
+  <div class="misc-wrapper">
+       <!-- Brand logo-->
+      <b-link class="brand-logo">
+         <img :src="logo" alt="Logo" />
+      </b-link>
+
+    <div class="misc-inner p-2 p-sm-3">
+      <div class="w-100 text-center">
+        <h2 class="mb-1">
+         Página no encontrada 🕵🏻‍♀️
+        </h2>
+        <p class="mb-2">
+          ¡UPS! 😖 La URL solicitada no se encontró en este servidor.
+        </p>
+
+        <b-button
+          variant="primary"
+          class="mb-2 btn-sm-block"
+          @click="router.push('/')">
+          Regresar a home
+        </b-button>
+
+        <!-- image -->
+        <b-img
+          fluid
+          :src="imgUrl"
+          alt="Error page"
+        />
+      </div>
+    </div>
+  </div>
+<!-- / Error page-->
+</template>
+
+<script setup>
+
+import useLogotipos from '@core/utils/useLogotipos'
+import {computed,toRefs} from 'vue'
+import { useAppConfigStore } from 'stores/appConfig'
+import {useRouter} from 'vue-router'
+
+import downImgDark from '@/assets/images/pages/error-dark.svg'
+import downImg from '@/assets/images/pages/error.svg'
+
+
+const store = useAppConfigStore();
+const router  = useRouter();
+
+const imgUrl = computed(() => {
+
+  if (store.layout.skin === 'dark') {
+    return downImgDark
+  }
+  return downImg;
+
+})
+
+const {
+  logotipo, logotipobg
+} = useLogotipos();
+
+const { skin } = toRefs(store.layout)
+
+const logo = computed(() => {
+  return skin.value == 'semi-dark' ? logotipo.value : logotipobg.value;
+})
+
+</script>
+
+<style lang="scss">
+@import '@core/scss/vue/pages/page-misc.scss';
+</style>
