@@ -36,7 +36,7 @@ import Error404 from 'views/error/Error404.vue'
 
 
 const router = createRouter({
-   history: createWebHistory(`/travel/`),
+   history: createWebHistory(import.meta.env.BASE_UR),
    
    routes:[
       ...paginas,

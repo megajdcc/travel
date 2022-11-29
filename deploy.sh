@@ -9,7 +9,7 @@ npm run build
 # navega al directorio de salida de compilación
 cd dist
 
-# coloca .nojekyll para forzar el procesamiento de Jekyll
+# coloca .nojekyll para forzar el procesamiento de Jekyllgit
 echo > .nojekyll
 
 # si estás desplegando en un dominio personalizado
@@ -24,6 +24,6 @@ git commit -m 'deploy 2'
 # git push -f git@github.com:<USERNAME>/<NOMBRE DE USUARIO>.github.io.git main
 
 # si estás desplegando en https://<USERNAME>.github.io/<repo>
-#git push -f git@github.com:megajdcc/travel.git main:gh-pages
+git push -f git@github.com:megajdcc/travel.git master:gh-pages
 
 cd -
