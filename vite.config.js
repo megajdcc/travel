@@ -12,7 +12,7 @@ const options = {
 }
 
 export default defineConfig({
-
+  base:'/travel/',
   optimizeDeps: {
     include: [
       "vue-google-maps-community-fork",
