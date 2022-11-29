@@ -12,7 +12,7 @@ const options = {
 }
 
 export default defineConfig({
-  base: process.env.NODE_ENV === 'production' ? '/travel/' : './',
+  base:import.meta.env.MODE === 'production' ? './' : './',
   optimizeDeps: {
     include: [
       "vue-google-maps-community-fork",
