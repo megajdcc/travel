@@ -24,6 +24,6 @@ git commit -m 'deploy 2'
 # git push -f git@github.com:<USERNAME>/<NOMBRE DE USUARIO>.github.io.git main
 
 # si estás desplegando en https://<USERNAME>.github.io/<repo>
-git push -f git@github.com:megajdcc/travel.git main:gh-pages
+#git push -f git@github.com:megajdcc/travel.git main:gh-pages
 
 cd -

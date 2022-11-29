@@ -8,7 +8,7 @@ import {useRouter} from 'vue-router';
 const router = useRouter();
 
 const axiosIns = axios.create({
-   baseURL: 'https://api.travelpoints.dev',
+   baseURL: 'https://api.travelpoints.es',
    withCredentials: true,
    timeout: 0,
    headers: { 'X-Requested-With': 'XMLHttpRequest', Accept: "application/json" }
