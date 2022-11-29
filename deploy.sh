@@ -16,7 +16,7 @@ echo > .nojekyll
 # echo 'www.ejemplo.com' > CNAME
 
 git init
-git checkout -B main
+git checkout -B master
 git add -A
 git commit -m 'deploy 2'
 
