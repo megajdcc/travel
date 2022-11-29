@@ -1,5 +1,5 @@
 
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHistory,createWebHashHistory } from 'vue-router';
 import { canNavigate } from 'libs/acl/routeProtection'
 
 import dashboard from './routes/dashboard'
@@ -36,7 +36,7 @@ import Error404 from 'views/error/Error404.vue'
 
 
 const router = createRouter({
-   history: createWebHistory(import.meta.env.BASE_URL),
+   history: createWebHashHistory(),
    
    routes:[
       ...paginas,
