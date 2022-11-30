@@ -27,6 +27,7 @@
     "bootstrap-vue-3": "^0.3.12",
     "chart.js": "^3.9.1",
     "element-plus": "^2.2.18",
+    "express": "^4.18.2",
     "feather-icons": "^4.29.0",
     "lodash": "^4.17.21",
     "maska": "^1.5.0",

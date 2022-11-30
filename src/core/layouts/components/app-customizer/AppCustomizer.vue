@@ -1,11 +1,11 @@
 <template>
   <div class="customizer d-none d-md-block" :class="{'open': isCustomizerOpen}" >
     <!-- Toggler -->
-    <b-link class="customizer-toggle d-flex align-items-center justify-content-center" @click="isCustomizerOpen = !isCustomizerOpen" >
+    <b-button variant="primary" class="customizer-toggle d-flex justify-content-center p-0 rounded-0" @click="isCustomizerOpen = !isCustomizerOpen" >
 
-      <font-awesome icon="gear" class="spinner" />
+      <font-awesome icon="gear" class="spinner my-0 p-0" size="lg" />
 
-    </b-link>
+    </b-button>
     <!-- /Toggler -->
 
     <!-- Header -->

@@ -1,14 +1,13 @@
 import axios from 'axios'
 
 import useAuth from '@core/utils/useAuth.js';
-import {useRouter} from 'vue-router';
+import router from '@/router';
 
 // import ToastificationContent from '@core/components/toastification/ToastificationContent';
 
-const router = useRouter();
 
 const axiosIns = axios.create({
-   baseURL: 'https://api.travelpoints.es',
+   baseURL: 'https://api.travelpoints.dev',
    withCredentials: true,
    timeout: 0,
    headers: { 'X-Requested-With': 'XMLHttpRequest', Accept: "application/json" }
@@ -53,6 +52,8 @@ axiosIns.interceptors.response.use((response) => {
 
 
 axiosIns.interceptors.response.use(undefined, (error) => {
+
+   // const router = useRouter();
 
    const response = error.response;
 
@@ -108,20 +109,14 @@ axiosIns.interceptors.response.use(undefined, (error) => {
 
    if (response.status === 404) {
       // location.reload()
-      // router.push({ name: 'error-404' })
+      router.push({ name: 'error-404' })
    }
 
    if (response.status === 419) {
-
-
       useAuth().logout();
-      // router.push({name:'login'})
+      router.push({name:'login'})
       // location.reload()
    }
-
-
-
-
 
    return Promise.reject(error);
 

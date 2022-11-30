@@ -1,5 +1,5 @@
-import { createApp,createSSRApp } from 'vue'
-import {renderToString} from 'vue/server-renderer'
+import { createApp, createSSRApp } from 'vue'
+import { renderToString } from 'vue/server-renderer'
 
 
 import BootstrapVue3 from 'bootstrap-vue-3'
@@ -24,7 +24,7 @@ import store from './stores';
 import toast from '@/libs/toastification'
 import axios from 'libs/axios'
 
-import {maska} from 'maska'
+import { maska } from 'maska'
 
 
 import FeatherIcon from '@core/components/feather-icon/FeatherIcon.vue';
@@ -38,7 +38,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 
 import VueGoogleMaps from 'vue-google-maps-community-fork'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-library.add(fas,fab)
+library.add(fas, fab)
 
 // ScrollPerfect 
 import VuePerfectScrollbar from 'components/VuePerfectScrollbar.vue'
@@ -60,27 +60,27 @@ import vRipple from './directives/vRipple'
 
 
 
-import lodash  from 'lodash'
+import lodash from 'lodash'
 
 window._ = lodash
 
 window.clone = function (obj) {
-  return JSON.parse(JSON.stringify(obj));
+   return JSON.parse(JSON.stringify(obj));
 }
 
 const app = createApp(App)
 
-app.use(abilitiesPlugin,ability,{
-   useGlobalProperties:true
+app.use(abilitiesPlugin, ability, {
+   useGlobalProperties: true
 })
 
-app.use(VueGoogleMaps,{
+app.use(VueGoogleMaps, {
 
-  load: {
-    key: 'AIzaSyCNWsVH2kmknm6knGSRKDuzGeMWM1PT6gA',
-    libraries: 'places',
-  },
-  installComponents: true
+   load: {
+      key: 'AIzaSyCNWsVH2kmknm6knGSRKDuzGeMWM1PT6gA',
+      libraries: 'places',
+   },
+   installComponents: true
 
 });
 
@@ -92,13 +92,13 @@ app.use(router);
 app.use(store);
 
 app.use(toast, {
-  hideProgressBar: false,
-  closeOnClick: false,
-  closeButton: false,
-  icon: false,
-  timeout: 3000,
-  transition: 'Vue-Toastification__fade',
-  position:'bottom-right'
+   hideProgressBar: false,
+   closeOnClick: false,
+   closeButton: false,
+   icon: false,
+   timeout: 3000,
+   transition: 'Vue-Toastification__fade',
+   position: 'bottom-right'
 })
 
 
@@ -109,12 +109,12 @@ app.use(toast, {
 // }
 
 app.component('font-awesome', FontAwesomeIcon)
-app.component('vue-perfect-scrollbar',VuePerfectScrollbar)
-app.directive('ripple',vRipple);
-app.component(FeatherIcon.name,FeatherIcon);
+app.component('vue-perfect-scrollbar', VuePerfectScrollbar)
+app.directive('ripple', vRipple);
+app.component(FeatherIcon.name, FeatherIcon);
 app.config.globalProperties.$http = axios;
 app.config.globalProperties.$uri = axios.getUri()
-app.provide('$uri',axios.getUri())
+app.provide('$uri', axios.getUri())
 app.directive('maska', maska);
 router.isReady().then(() => app.mount('#app'))
 // app.mount('#app')

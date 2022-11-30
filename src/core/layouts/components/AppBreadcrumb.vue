@@ -1,8 +1,8 @@
 <template>
-  <b-row v-if="$route.meta.breadcrumb || $route.meta.pageTitle" class="content-header">
+  <b-row v-if="$route.meta.breadcrumb || $route.meta.pageTitle" class="content-header px-4">
 
     <!-- Content Left -->
-    <b-col class="content-header-left mb-2" cols="12" md="9">
+    <b-col class="content-header-left my-3" cols="12" md="9">
 
       <b-row class="breadcrumbs-top">
         <b-col cols="12">

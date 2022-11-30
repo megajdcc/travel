@@ -2,7 +2,7 @@
   <!-- Error page-->
   <div class="misc-wrapper">
        <!-- Brand logo-->
-      <b-link class="brand-logo">
+      <b-link class="brand-logo" @click.stop="router.push('/')">
          <img :src="logo" alt="Logo" />
       </b-link>
 
@@ -12,22 +12,13 @@
          Página no encontrada 🕵🏻‍♀️
         </h2>
         <p class="mb-2">
-          ¡UPS! 😖 La URL solicitada no se encontró en este servidor.
+          ¡UPS! 😖 La URL solicitada no se encontró en este servidor. <br>
+            <b-link @click="() => router.push('/')">
+              Regresar a home
+            </b-link>
         </p>
-
-        <b-button
-          variant="primary"
-          class="mb-2 btn-sm-block"
-          @click="router.push('/')">
-          Regresar a home
-        </b-button>
-
         <!-- image -->
-        <b-img
-          fluid
-          :src="imgUrl"
-          alt="Error page"
-        />
+        <b-img fluid :src="imgUrl" alt="Error page" />
       </div>
     </div>
   </div>
@@ -38,33 +29,23 @@
 
 import useLogotipos from '@core/utils/useLogotipos'
 import {computed,toRefs} from 'vue'
-import { useAppConfigStore } from 'stores/appConfig'
 import {useRouter} from 'vue-router'
-
+import useAppConfig from '@core/app-config/useAppConfig'
 import downImgDark from '@/assets/images/pages/error-dark.svg'
 import downImg from '@/assets/images/pages/error.svg'
 
-
-const store = useAppConfigStore();
+const {skin} = useAppConfig()
 const router  = useRouter();
 
-const imgUrl = computed(() => {
-
-  if (store.layout.skin === 'dark') {
-    return downImgDark
-  }
-  return downImg;
-
-})
+const imgUrl = computed(() => ['dark','semi-dark'].includes(skin.value) ? downImgDark : downImg)
 
 const {
   logotipo, logotipobg
 } = useLogotipos();
 
-const { skin } = toRefs(store.layout)
 
 const logo = computed(() => {
-  return skin.value == 'semi-dark' ? logotipo.value : logotipobg.value;
+  return ['semi-dark','dark'].includes(skin.value) ? logotipo.value : logotipobg.value;
 })
 
 </script>

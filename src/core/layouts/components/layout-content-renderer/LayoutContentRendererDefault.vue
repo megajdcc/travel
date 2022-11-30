@@ -1,4 +1,5 @@
 <template>
+  
   <div class="app-content content" :class="[{'show-overlay': app.shallShowOverlay}, $route.meta.contentClass]">
     
     <div class="content-overlay" />

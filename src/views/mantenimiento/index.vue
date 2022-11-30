@@ -4,10 +4,8 @@
    <!-- Brand logo-->
       <b-link class="brand-logo" :to="{name:'home'}">
         
-         <!-- <img src="/storage/logotipo.png" alt="Logo" /> -->
-        <!-- <h2 class="brand-text text-primary ms-1">
-          Boda y Playa
-        </h2> -->
+         <img :src="logo" alt="Logo" />
+       
       </b-link>
       <!-- /Brand logo-->
 
@@ -48,6 +46,9 @@ import {computed,toRefs,ref} from 'vue'
 
 import useLogotipos from '@core/utils/useLogotipos'
 import { useAppConfigStore } from 'stores/appConfig'
+import img from '@/assets/images/pages/under-maintenance.svg';
+import imgDark from '@/assets/images/pages/under-maintenance-dark.svg';
+
 
 export default {
   components: {   
@@ -57,9 +58,7 @@ export default {
 
   setup(){
     const appConfig = useAppConfigStore();
-    const downImg = require('@/assets/images/pages/under-maintenance.svg')
     const { skin } = toRefs(appConfig.layout)
-   
 
     const {
       logotipo,
@@ -67,21 +66,12 @@ export default {
     } = useLogotipos();
 
     return {
-      imgUrl:computed(() => {
-
-        if (skin.value === 'dark') {
-          // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-          downImg = require('@/assets/images/pages/under-maintenance-dark.svg')
-          return downImg
-        }
-
-        return downImg
-      }),
+      imgUrl: computed(() => ['semi-dark', 'dark'].includes(skin.value) ? imgDark : img),
 
       logo: computed(() => {
-        return skin.value == 'semi-dark' ? logotipo.value : logotipobg.value;
+        return ['semi-dark','dark'].includes(skin.value) ? logotipo.value : logotipobg.value;
       }),
-      downImg
+
     }
   }
 }
